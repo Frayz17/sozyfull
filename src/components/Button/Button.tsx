@@ -1,34 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Props } from "./types";
-
+import classnames from "classnames";
 import css from "./styles.module.css";
 
-const button: React.FC<Props> = ({}) =>
-  !props.link ? (
+const Button: React.FC<Props> = ({
+  link,
+  design,
+  mode,
+  onClick,
+  disabled,
+  loading,
+  type,
+  children,
+}) =>
+  !link ? (
     <button
-      className={[
-        "button",
-        `button--${props.design}`,
-        `button--${props.mode}`,
-      ].join(" ")}
-      onClick={props.onClick}
-      disabled={props.disabled || props.loading}
-      type={props.type}
+      className={classnames(css.button, {
+        [css[`button--${design}`]]: !!design,
+        [css[`button--${mode}`]]: !!mode,
+      })}
+      onClick={onClick}
+      disabled={disabled || loading}
+      type={type}
     >
-      {props.loading ? "Loading..." : props.children}
+      {loading ? "Loading..." : children}
     </button>
   ) : (
     <Link
-      className={[
-        "button",
-        `button--${props.design}`,
-        `button--${props.mode}`,
-      ].join(" ")}
-      to={props.link}
+      className={classnames(css.button, {
+        [css[`button--${design}`]]: !!design,
+        [css[`button--${mode}`]]: !!mode,
+      })}
+      to={link}
     >
-      {props.children}
+      {children}
     </Link>
   );
 
-export default button;
+export default Button;
