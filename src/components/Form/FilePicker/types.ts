@@ -1,6 +1,6 @@
 export interface Props {
   id: string;
-  onChange: (id: string, value: string, file: FileList | null) => void;
+  onChange: (id: any, value: string, file: FileList) => void;
   label?: string;
   valid?: boolean;
   touched?: boolean;

@@ -32,7 +32,7 @@ const Input: React.FC<Props> = ({
         required={required}
         value={value}
         placeholder={placeholder}
-        onChange={(e) => onChange(id, e.target.value, e.target.files)}
+        onChange={(e) => onChange(id, e.target.value)}
         onBlur={onBlur}
       />
     )}

@@ -1,7 +1,9 @@
-interface Config {
+export interface Config {
   min?: number;
   max?: number;
 }
+export type Required = (value: string) => boolean;
+export type Length = (config: Config) => boolean;
 
 export const required = (value: string) => value.trim() !== "";
 
