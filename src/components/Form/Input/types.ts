@@ -1,5 +1,5 @@
 export interface Props {
-  id: string;
+  id?: string;
   onChange: (id: any, value: string, files?: FileList) => void;
   value: string | number;
   label?: string;

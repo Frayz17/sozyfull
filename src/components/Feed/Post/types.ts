@@ -5,4 +5,6 @@ export interface Props {
   date: string;
   onStartEdit: () => void;
   onDelete: () => void;
+  image: string;
+  content: string;
 }

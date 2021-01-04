@@ -1,8 +1,4 @@
-interface Error {
-  message: string;
-}
-
 export interface Props {
-  error?: Error;
+  error?: Error | null;
   onHandle: () => void;
 }
