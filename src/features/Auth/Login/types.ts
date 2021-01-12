@@ -5,7 +5,6 @@ export interface LoginState {
   loginForm: {
     email: Input;
     password: Input;
-    formIsValid: boolean;
   };
 }
 

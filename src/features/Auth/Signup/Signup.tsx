@@ -1,35 +1,36 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Input from "components/Form/Input/Input";
 import Button from "components/Button/Button";
 import { required, length, email } from "utils/validators";
 import Auth from "../Auth";
-import { Props, SignupData } from "./types";
-import { Input as InputType } from "../authTypes";
+import { Props, signUpState } from "./types";
 
-class Signup extends Component<Props, SignupData> {
-  state = {
-    signupForm: {
-      email: {
-        value: "",
-        valid: false,
-        touched: false,
-        validators: [required, email],
-      },
-      password: {
-        value: "",
-        valid: false,
-        touched: false,
-        validators: [required, length({ min: 5 })],
-      },
-      name: {
-        value: "",
-        valid: false,
-        touched: false,
-        validators: [required],
-      },
-      formIsValid: false,
+const initialState = {
+  signupForm: {
+    email: {
+      value: "",
+      valid: false,
+      touched: false,
+      validators: [required, email],
     },
-  };
+    password: {
+      value: "",
+      valid: false,
+      touched: false,
+      validators: [required, length({ min: 5 })],
+    },
+    name: {
+      value: "",
+      valid: false,
+      touched: false,
+      validators: [required],
+    },
+  },
+};
+
+const Signup: React.FC<Props> = ({}) => {
+  const [state, setState] = useState(initialState as signUpState)
+  const [formIsValid, setFormIsvalid] = useState(false);
 
   inputChangeHandler = (input, value) => {
     this.setState((prevState) => {
